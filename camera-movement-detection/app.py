@@ -2,10 +2,12 @@ import streamlit as st
 import numpy as np
 from PIL import Image
 import movement_detector
+import object_movement_detector
 
 st.title("Camera Movement Detection Demo")
 st.write(
-    "Upload a sequence of images (e.g., from a camera). The app will detect frames with significant camera movement."
+    "Upload a sequence of images (e.g., from a camera). The app will detect frames with significant camera movement "
+    "and object movement."
 )
 
 uploaded_files = st.file_uploader(
@@ -23,8 +25,14 @@ if uploaded_files:
 
     st.write(f"Loaded {len(frames)} frames.")
     movement_indices = movement_detector.detect_significant_movement(frames)
+    object_movement_indices = object_movement_detector.detect_object_movement(frames)
     st.write("Significant movement detected at frames:", movement_indices)
 
     # Optionally show frames with detected movement
     for idx in movement_indices:
-        st.image(frames[idx], caption=f"Movement at frame {idx}", use_column_width=True)
+        st.image(frames[idx], caption=f"Movement at frame {idx}", use_container_width=True)
+
+    st.write("Object movement detected at frames:", object_movement_indices)
+
+    for index in object_movement_indices:
+        st.image(frames[index], caption=f"Object movement at frame {index}", use_container_width=True)

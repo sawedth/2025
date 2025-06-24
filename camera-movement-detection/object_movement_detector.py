@@ -3,9 +3,9 @@ import numpy as np
 from typing import List
 
 
-def detect_significant_movement(frames: List[np.ndarray], threshold: float = 5.8) -> List[int]:
+def detect_object_movement(frames: List[np.ndarray], threshold: float = 0.2) -> List[int]:
     """
-    Detect frames where significant camera movement occurs.
+    Detect frames where camera movements of objects.
     Args:
         frames: List of image frames (as numpy arrays).
         threshold: Sensitivity threshold for the magnitude of optical flow.
@@ -19,7 +19,7 @@ def detect_significant_movement(frames: List[np.ndarray], threshold: float = 5.8
     if len(frames) < 2:
         return []
 
-    # # Convert the first frame to grayscale if the frame is not gray
+    # Convert the first frame to grayscale if the frame is not gray
     frame = frames[0]
     if len(frame.shape) == 3 and frame.shape[2] == 3:
         prev_gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
@@ -63,4 +63,3 @@ def detect_significant_movement(frames: List[np.ndarray], threshold: float = 5.8
         prev_gray = gray
 
     return movement_indices
-
