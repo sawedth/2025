@@ -36,7 +36,7 @@ Imagine you are tasked with building a component for a smart camera system. Your
 
   * Used sample gifs and video is in **sample_gifs** and **sample_video** directory with their outputs (20 fps and used while testing the sample video).
   * ***Video:*** I had to split the video in order to split it into JPG. The first 10 seconds have a significant movement, roughly between 5 and 10 seconds. I split the video at 20fps. Thus, the significant move starts at the 102nd frame (5.1 seconds). But in the second half of the video, there is no shaking, so there is no output about significant movement. Both parts have moving objects.
-  * **Gif 1:** I chose this gif to test for the impact of changing lights on the app because light changing is not a move. There is no significant movement as expected.
-  * **Gif 2:** I chose this gif to test whether a big object movement counts as a significant camera move. Especially this GIF helped me a lot with threshold tuning.
-  * **Gif 3:** In this gif, the person stops for a frame, so I want to test the app's performance. The app does not return that frame, which is good.
-  * **Gif 4:** This GIF includes both moving scenarios, so it is a good example.  
+  * **GIF 1:** I chose this GIF to test the impact of changing lights on the app because light changes are not a move. There is no significant movement as expected.
+  * **GIF 2:** I chose this GIF to test whether a significant movement of a large object counts as a significant camera move. Especially this GIF helped me a lot with threshold tuning.
+  * **GIF 3:** In this gif, the person does not stop, so I want to test the app's performance. 
+  * **GIF 4:** This GIF includes both moving scenarios, so it is a good example.  
