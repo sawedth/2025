@@ -3,7 +3,7 @@ import numpy as np
 from typing import List
 
 
-def detect_significant_movement(frames: List[np.ndarray], threshold: float = 5.8) -> List[int]:
+def detect_significant_movement(frames: List[np.ndarray], threshold: float = 1.75) -> List[int]:
     """
     Detect frames where significant camera movement occurs.
     Args:

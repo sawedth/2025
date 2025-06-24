@@ -3,7 +3,7 @@ import numpy as np
 from typing import List
 
 
-def detect_object_movement(frames: List[np.ndarray], threshold: float = 0.2) -> List[int]:
+def detect_object_movement(frames: List[np.ndarray], threshold: float = 0.17) -> List[int]:
     """
     Detect frames where camera movements of objects.
     Args:
@@ -11,7 +11,7 @@ def detect_object_movement(frames: List[np.ndarray], threshold: float = 0.2) -> 
         threshold: Sensitivity threshold for the magnitude of optical flow.
                    This value may need tuning.
     Returns:
-        List of indices where significant movement is detected.
+        List of indices where object movement is detected.
     """
     movement_indices = []
 
